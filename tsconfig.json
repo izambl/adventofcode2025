@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./days",
+    "lib": ["ESNext.Array", "es2023"],
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "noEmit": true,
+    "noLib": false,
+    "outDir": "./dist",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "esnext"
+  },
+  "include": ["days/**/*", "common/**/*"],
+  "exclude": ["node_modules"]
+}
