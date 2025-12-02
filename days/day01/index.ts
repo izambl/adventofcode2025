@@ -5,11 +5,11 @@ import path from 'node:path';
 
 import { readInput } from '../../common/index';
 
-const part01Input = readInput(path.join(__dirname, 'input01'), '\n');
+const input = readInput(path.join(__dirname, 'input01'), '\n');
 
 let position = 50;
 let hits = 0;
-for (const instruction of part01Input) {
+for (const instruction of input) {
   const direction = instruction[0];
   const clicks = Number(instruction.substring(1));
 
@@ -28,5 +28,29 @@ for (const instruction of part01Input) {
   }
 }
 
+let position2 = 50;
+let hits2 = 0;
+for (const instruction of input) {
+  const direction = instruction[0];
+  const clicks = Number(instruction.substring(1));
+
+  for (let i = 0; i < clicks; i++) {
+    if (direction === 'R') {
+      position2 += 1;
+      if (position2 === 100) {
+        position2 = 0;
+      }
+    } else {
+      position2 -= 1;
+      if (position2 === -1) {
+        position2 = 99;
+      }
+    }
+    if (position2 === 0) {
+      hits2 += 1;
+    }
+  }
+}
+
 process.stdout.write(`Part 01: ${hits}\n`);
-process.stdout.write(`Part 02: ${1}\n`);
+process.stdout.write(`Part 02: ${hits2}\n`);
