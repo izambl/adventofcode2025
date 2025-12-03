@@ -26,6 +26,23 @@ export function dayRunner(input: string) {
     part01 += Number(`${firstValue}${secondValue}`);
   }
 
+  let part02 = 0;
+  const batteryCount = 12;
+  for (const bank of banks) {
+    const batteries: number[] = [];
+    let currentIndex = 0;
+
+    for (let battery = 1; battery <= batteryCount; battery++) {
+      const [batteryIndex, batteryValue] = findLargest(
+        bank.substring(0, bank.length - (batteryCount - battery)),
+        currentIndex,
+      );
+      batteries.push(batteryValue);
+      currentIndex = batteryIndex + 1;
+    }
+    part02 += Number(batteries.join(''));
+  }
+
   process.stdout.write(`Part 01: ${part01}\n`);
-  process.stdout.write(`Part 02: ${1}\n`);
+  process.stdout.write(`Part 02: ${part02}\n`);
 }
