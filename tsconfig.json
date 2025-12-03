@@ -1,17 +1,23 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    "strict": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "baseUrl": "./days",
-    "lib": ["ESNext.Array", "es2023"],
-    "module": "CommonJS",
-    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
     "noEmit": true,
-    "noLib": false,
+    "baseUrl": "./days",
     "outDir": "./dist",
     "removeComments": true,
-    "sourceMap": true,
-    "target": "esnext"
+    "sourceMap": true
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": ["days/**/*", "common/**/*"],
   "exclude": ["node_modules"]
