@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Advent of code 2026 - With Typescript",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "format": "biome format --write ./days ./common",
     "lint": "biome check ./days ./common",
