@@ -7,6 +7,7 @@ export type Tile = {
   left: Tile | null;
   value: string;
   position: Position;
+  carryValue?: string | number;
 };
 export type TileMap = Map<Position, Tile>;
 
@@ -15,7 +16,8 @@ const positionCache = new Map<string, Position>();
 export function P(x: number, y: number): Position {
   const key = `${x}|${y}`;
 
-  if (positionCache.has(key)) return positionCache.get(key);
+  const position = positionCache.get(key);
+  if (position) return position;
 
   const tuple: Position = [x, y] as const;
   positionCache.set(key, tuple);
